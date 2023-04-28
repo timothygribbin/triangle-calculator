@@ -9,11 +9,13 @@ def main():
          C()
     else:
          print("Answer not found, please run the program again and enter 'A', 'B', or 'C'.")
+
 def prompt():
     x = ""
     while (len(x) < 1):
         x = input("What information will you be providing me with today? \n A) 2 sides and the angle between those 2 sides \n B) 2 angles and one side in between those angles \n C) 3 sides and no angles \n Enter your letter choice below: \n").capitalize().strip()
     return x
+
 def A():
         side_a = float(input("Side a: "))
         side_b = float(input("Side b: "))
@@ -30,6 +32,7 @@ def A():
             angle_B = 180 - (angle_C + angle_A)
         area = calculate_area(side_a,side_b,side_c)
         print_results(side_a,side_b,side_c,angle_A,angle_B,angle_C, area) 
+
 def B(): 
     angle_A = float(input(("Angle A: ")))
     angle_B = float(input(("Angle B: ")))
@@ -39,6 +42,7 @@ def B():
     side_b = ((side_c * math.sin(math.radians(angle_B)))/math.sin(math.radians(angle_C)))
     area = calculate_area(side_a,side_b,side_c)
     print_results(side_a,side_b,side_c,angle_A,angle_B,angle_C, area)    
+
 def C():
      side_a = float(input(("Side a: ")))
      side_b = float(input(("Side b: ")))
@@ -53,6 +57,7 @@ def C():
      angle_B = 180-(angle_A + angle_C)
      area = calculate_area(side_a,side_b,side_c)
      print_results(side_a,side_b,side_c,angle_A,angle_B,angle_C, area)   
+
 def print_results(side_a,side_b,side_c,angle_A,angle_B,angle_C, area):
     print("\nResults:\n")
     print("Side a: " + str(side_a))
@@ -62,6 +67,7 @@ def print_results(side_a,side_b,side_c,angle_A,angle_B,angle_C, area):
     print("Angle B: " + str(angle_B))
     print("Angle C: " + str(angle_C))
     print("Area: " + (str((area))))
+
 def calculate_area(side_a,side_b,side_c):
     s = (side_a + side_b + side_c) / 2
     area = math.sqrt(s*(s-side_a)*(s-side_b)*(s-side_c))
